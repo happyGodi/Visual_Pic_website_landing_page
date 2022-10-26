@@ -6,11 +6,22 @@ const navbar = document.querySelector('.navbar')
 const border = document.querySelector('.border')
 const hamburger = document.querySelector('.hamburger')
 const landing = document.querySelector('.landing')
+const left = document.querySelector('.bLeft')
 
 window.addEventListener('load', () => {
     loading.classList.toggle('finished')
     preloader.classList.toggle('done')
 })
+
+hamburger.addEventListener('click', () => {
+    landing.classList.toggle('disapear')
+    navbar.classList.toggle('show')
+    left.classList.toggle('screen')
+    setTimeout(() => {
+        border.classList.toggle('onScreen')
+    }, 800);
+})
+
 cards.forEach((card, index) => {
     card.addEventListener('mouseover', () => {
         let i = index
