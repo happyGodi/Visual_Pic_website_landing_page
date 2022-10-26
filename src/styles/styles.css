@@ -1,7 +1,39 @@
 /*general*/
-body{
+*{
+    box-sizing: border-box;
     margin: 0%;
     font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: rgb(18, 18, 18);
+}
+li{
+    list-style: none;
+}
+/*specific*/
+.preloader{
+    position: absolute;
+    top: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(43, 43, 43);
+    z-index: 5;
+    transition: transform 1000ms 600ms ease-out;
+}
+.preloader.done{
+    transform: translateY(-110vh);
+}
+.loading{
+    font-size: 32px;
+    color: White;
+    transition: opacity 500ms ease-out;
+}
+.loading.finished{
+    opacity: 0;
+}
+.container{
     color: rgb(18, 18, 18);
     background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('../assets/grey_mountain.webp');
     background-size: cover;
@@ -10,46 +42,41 @@ body{
     height: 100vh;
     width: 100%;
 }
-li{
-    list-style: none;
-}
-a{
-    text-decoration: none;
-    color: rgb(18, 18, 18);
-}
-img{
-    width: 100%;
-    height: 100%;
-    transition: 250ms;
-}
-img:hover{
-    filter: brightness(50%);
-}
-/*specific*/
 .navbar{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 0%;
-    width: 100vw;
+    width: 100%;
     height: 10vh;
+    padding: 1rem;
     overflow: hidden;
 }
 .nav__items{
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    padding-left: 0em;
-    color: white;
+    margin-left: -1rem;
 }
-.nav__links__left{
-    padding: 1em 3em 1em 0em;/*top right bottom left*/
-    color: white;
+.left, .right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.nav__links__right{
-    padding: 1em 0em 1em 2em;/*top right bottom left*/
+.left{
+    width: 30%;
+    margin-right: auto;
+}
+.right{
+    width: 20%;
+    margin-left: auto;
+}
+.nav__title{
+    color: white;
+    width: 20%;
+}
+.nav__links{
     color: white;
 }
 .gallery{
@@ -68,39 +95,17 @@ img:hover{
     align-items: baseline;
     margin-right: calc(100% /2 + 15px);
 }
-.nav__links__left__gallery{
-    padding: 1.8em 3em 0.4em 0em;/*top right bottom left*/
-    color: white;
-}
-.nav__title{
-    padding: 2em 3em;
-    background-color: rgb(43, 43, 43);
-}
-.nav__items__border__left{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border-bottom: 1px solid white;
-    height: 80%;
-    width: 70%;
-    margin: 1em 2em;
-}
-.nav__items__border__right{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    border-bottom: 1px solid white;
-    height: 80%;
-    width: 70%;
-    margin: 1em 2em;
-}
+
 .card__image{
     position: relative;
     width: 15vw;
     height: 33vh;
     overflow: hidden;
     margin: 1em;
-    transition: 250ms;
+    transition: height 300ms ease-out;
+}
+.card__image:hover{
+    height: 40vh;
 }
 .card{
     position: absolute;
@@ -112,6 +117,7 @@ img:hover{
     width: 100%;
     margin-top: 20vh;
 }
+
 .article__title{
     color: transparent;
     text-align: center;
@@ -134,9 +140,4 @@ img:hover{
 .add{
     border-left: 1px solid rgba(255, 255, 255, 0.7);
     padding-left: 1em;
-}
-/*transition*/
-.card__image:hover{
-    height: 40vh;
-    transform: scale(1.1); 
 }
